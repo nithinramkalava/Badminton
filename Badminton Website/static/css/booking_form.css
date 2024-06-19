@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(/static/Icons/OIG1.jpeg);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+}   
+
+form {
+    background-color: #fff;
+    padding: 1.6em;
+    border-radius: 1.6vh;
+    box-shadow: 0 0 1.8vh rgba(0, 0, 0, 1);
+    max-width: 27em;
+    width: 100%;
+}
+  
+label {
+    font-weight: bold;
+}
+  
+select, input[type="date"] {
+    width: 100%;
+    padding: 0.8em;
+    margin: 0.6em 0;
+    border: 0.1em solid #ccc;
+    border-radius: 0.4em;
+    box-sizing: border-box;
+}
+  
+input[type="submit"] {
+    background-color: #e67b17;
+    color: #fff;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 0.4em;
+    cursor: pointer;
+}
+  
+input[type="submit"]:hover {
+    background-color: #ff7200;
+}

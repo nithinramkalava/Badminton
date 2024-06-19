@@ -1,0 +1,92 @@
+/* Venues CSS without base.css*/
+body{
+    margin-left: 3%;
+}
+
+.thumbnail {
+    width: 22.25em; 
+    height: 12em; 
+}
+
+
+.name {
+    font-weight: bolder;
+    text-transform: uppercase;
+    justify-self: center;
+}
+
+img {
+    border-radius: 0.5em 0.5em 0em 0em; 
+}
+
+.grid-container {
+    padding-top: 6.25em;
+    padding-right: 10.5625em; 
+    margin-right: 120px;
+}
+
+.sport {
+    margin-bottom: 2.1875em;
+    margin-right: 2em; 
+    border-radius: 0.75em;
+    outline: 0.25em solid white;
+    transition: 0.13s;
+}
+
+
+.grid-elements {
+    display: grid;
+    align-self: center;
+    grid-template-columns: 1fr;
+}
+
+.text {
+    padding-left: 0.875em;
+    padding-bottom: 1.875em; 
+    color: white;
+    .name{
+        align-items: center;
+    }
+}
+
+.sport:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    outline-color: orange;
+}
+
+.sport:hover .name {
+    color: orange;
+}
+
+
+p {
+    margin-top: 1.25em; 
+    font-family: Arial;
+    background-color: black;
+}
+
+@media screen and (min-width: 668px) {
+    .grid-elements {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (min-width: 1028px) {
+    .grid-elements {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .grid-elements {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+@media screen and (min-width: 1800px) {
+    .grid-elements {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}

@@ -1,0 +1,40 @@
+{% extends 'Base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for("static", filename="css/home.css") }}">
+
+{% endblock %}
+
+{% block home %}
+<div id="image123">
+  <div class="typewriter">
+  {% if current_user.is_authenticated %}
+    <h1>You have Successfully Logged in {{ current_user.Name.upper() }}, Scroll down to see the Team Members:)</h1>
+  {% else %}
+    <h1>Login is Pending . . . </h1>
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+ <div class = "whole">
+  <h2 style="margin-left: 39%;margin-bottom: 20px;font-size: 2.3em;" >Members </h2>
+  <br>
+  <ul>
+    <div class = "bux" style="display:flex;justify-content: space-between;">
+      {% for i in members %}
+      <div>
+        <li><img src="{{i.MemImageURL}}" alt="{{i.Name}}"></li>
+        <li>{{i.Name}}</li>
+        <li>{{i.Instno}}</li>
+        <li>BATCH: {{i.Batch}}</li>
+      </div>
+      {% endfor %}
+    </div>
+      
+  </ul>
+</div>
+{% endblock %} 

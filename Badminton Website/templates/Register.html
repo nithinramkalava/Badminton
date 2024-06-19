@@ -1,0 +1,70 @@
+{% extends "Index.html" %}
+{% block title %}Register{% endblock %}
+{% block css %} 
+<link rel="stylesheet" href="{{ url_for("static", filename="css/base.css") }}">
+<link rel="stylesheet" href="{{ url_for("static", filename="css/login.css") }}">
+<style>
+    .login-box{
+        width: 450px;
+        height: 510px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="login-box">
+        <form action="/user-register" method="post">
+            <h2>Register</h2>
+            <div class="inner">
+                <div class="input-box">
+                    <span class="icon"><img src = "/static/Icons/usericon.png"></span>
+                    <div id="lines">
+                        <label for="name">Name:</label>
+                        <input id="searchbox" type="text" name= "name" minlength="1" maxlength="100" required>
+                    </div>
+                </div>
+    
+                <div class="input-box">
+                    <span class="icon"><img src = "/static/Icons/usericon.png"></span>
+                    <div id="lines">
+                        <label for="username">Username:</label>
+                        <input id="searchbox" type="text" name="username" minlength="4" maxlength="30" required>
+                    </div>
+                </div>
+    
+                <div class="input-box">
+                    <span class="icon"><img src = "/static/Icons/passicon.png"></img></span>
+                    <div id="lines">
+                        <label for="password">Password:</label>
+                        <input id="searchbox" type="password" name="password" pattern=".{8,256}" title="Password must be at least 8 characters long" required>
+                    </div>
+                </div>
+    
+                <div class="input-box">
+                    <span class="icon"><img src = "/static/Icons/passicon.png"></img></span>
+                    <div id="lines">
+                        <label for="confirmpassword">Confirm Password:</label>
+                        <input id="searchbox" type="password" name="confirmpassword" pattern=".{8,256}" title="Password must be at least 8 characters long" required>
+                    </div>
+                </div>
+            </div>
+    
+            <button class="login-button" type="submit">Register</button>
+            <div class="register-link">
+                <p>Already Registered?
+                <a href="/">Login</a></p>
+            </div>
+        </form>
+        <div class="error">
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</section>  
+{% endblock %}

@@ -1,0 +1,80 @@
+<!-- Booking_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Form</title>
+<link rel="stylesheet" href="{{ url_for("static", filename="css/booking_form.css") }}">
+</head>
+<body>
+  <form id="booking-form" action="/venues/{{venuename}}/book" method="post">
+    
+    <label for="sports" style="display: block;">Sports:</label>
+    <select id="sports" class="dropdown" name="sports" required>
+      {% for i in avail_sports %}
+      <option class="option" value="{{i.SportName}}">{{i.SportName}}</option>
+      {% endfor %}
+    </select><br><br>
+
+    <label for="date" style="display: block;">Date:</label>
+    <input type="date" id="date" name="date" required><br><br>
+
+    <label for="duration" style="display: block;">Duration:</label>
+    <select id="duration" name="duration" class="dropdown" required>
+      <option class="option" value="1hr">1hr</option>
+      <option class="option" value="2hr">2hr</option>
+    </select><br><br>
+
+    <label for="time-slot" style="display: block;">Slot:</label>
+    <select id="time-slot" name="time-slot" class="dropdown" required>
+    </select><br><br>
+  
+    <input type="submit" value="BOOK">
+  </form> 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dateInput = document.getElementById('date');
+  const sportSelect = document.getElementById('sports');
+  const slotSelect = document.getElementById('time-slot');
+  const venuename = "{{ venuename }}";
+
+  dateInput.addEventListener('change', updateAvailableSlots);
+
+  [sportSelect].forEach(select => {
+    select.addEventListener('change', updateAvailableSlots);
+  });
+
+  function updateAvailableSlots() {
+    const date = dateInput.value;
+    const sport = sportSelect.value;
+
+    // Send AJAX request to fetch available slots
+    fetch(`/venues/${venuename}/availability?date=${date}&sport=${sport}`)
+      .then(response => response.json())
+      .then(data => {
+        // Update available slots in the form
+        updateSlotOptions(data.availableSlots);
+      })
+      .catch(error => {
+        console.error('Error fetching available slots:', error);
+      });
+  }
+
+  function updateSlotOptions(slots) {
+
+    slotSelect.innerHTML = '';
+
+    slots.forEach(slot => {
+      const option = document.createElement('option');
+      option.text = slot;
+      slotSelect.add(option);
+    });
+  }
+});
+var today = new Date().toISOString().split('T')[0];
+document.getElementsByName("date")[0].setAttribute('min', today);
+</script>
+</body>
+</html>

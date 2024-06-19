@@ -1,0 +1,42 @@
+{% extends 'Base.html' %}
+
+{% block title %}Book{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/css/booking_page.css">
+{% endblock %}
+
+{% block content %}
+<div style="width:fit-content;">
+    <div style="display: flex; width:97vw; justify-content: space-between;">
+        <div>
+            <h1 class="venue">{{ venue.VenueName }}</h1> 
+           
+            <img class = "venicon" src="{{ venue.VenueImageURL }}">
+        </div>
+        <div  id= "buxa" style="margin-top: 65px;margin-right: 210px;">
+
+            <p class="location"><span style="font-weight: 600; font-size: larger;"> Location: </span><br><br>  {{ venue.VenueAddress }}</p>
+            <p class="timings"><span style="font-weight: 600;font-size: larger;"> Timings: </span><br><br>  {{ venue.FirstSlot }} to {{ venue.LastSlot }}</p>
+            <form action="/venues/{{venue.VenueName}}" method="post">
+                <input class="button" type="submit" value="BOOK">
+            </form>
+        </div> 
+    </div> 
+    <h4 style="margin-left: 17px;">Sports Available</h4>
+    
+    {% for i in avail_sports %}
+    <div class="sportcontainer">
+       <img class = "icon" src="{{ i.SportImageURL }}">
+       <p class="eachsport" style="padding-bottom: 5px;">{{ i.SportName }}</p>
+
+    </div>
+       
+    {% endfor %}
+    <div class="blog">
+        <p>{{ venue.VenueBlog }}</p>
+    </div>
+
+</div>
+
+{% endblock %}

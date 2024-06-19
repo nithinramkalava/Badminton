@@ -1,0 +1,96 @@
+body{
+    margin-left: 0;
+    overflow-x: hidden;
+    
+}
+h1 {
+    z-index: 2;
+    position: absolute;
+    top: 250px;
+    left: 23px;
+    color: white;
+}
+
+#image123{
+    position: relative;
+    width: 100vw ;
+    height: 120vh;
+    background-image: url(/static/Icons/clear.jpg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    min-width: 600px;
+}
+
+.whole {
+    font-size: 20px;
+    color: white;
+    width: 100%;
+    margin-left: 250px;
+    margin-bottom: 100px;
+    padding: 36px;
+
+    pre{
+        max-width: 100%;
+        overflow: auto;
+        white-space: wrap;
+    
+    }
+    h2{
+        color: rgb(255, 255, 255);
+        font-size:xx-large;
+        font-weight: bold;
+    }
+
+    li {
+            margin-bottom: 10px;
+        }
+    }
+  
+.typewriter h1 {
+    overflow: hidden; 
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: .15em;
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+    margin-top: 98px;
+    margin-left: 18px;
+}
+
+img {
+    width: 200px;
+    height: auto;
+    margin: 0 auto; 
+    display: block; 
+}
+li{
+  list-style: none;
+}
+.bux {
+      color: #fff;
+      text-align: center;
+      padding: 2em;
+      border-radius: 0.9em;
+      background-color: #000;
+      width: auto;
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      border: 2px solid #ff7200;
+  }
+
+
+
+  
+@keyframes typing {
+    from { width: 0% }
+    to { width: 100% }
+}
+  
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+  

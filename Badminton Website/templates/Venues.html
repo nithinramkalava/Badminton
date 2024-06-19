@@ -1,0 +1,26 @@
+{% extends 'Base.html' %}
+{% block title %}Book{% endblock %}
+{% block css %}<link rel="stylesheet" href="{{ url_for("static", filename="css/venues.css") }}">{% endblock %}
+
+{% block content %}
+<div class = "grid-container"> 
+    <div class="grid-elements">
+        {% for i in venues %}
+            <a href="/venues/{{ i.VenueName }}">
+            <div class="sport">
+                <div class = "image">
+                    <img src="{{ i.VenueImageURL }}" alt= "{{ i.VenueName }}" class="thumbnail" >
+                </div>
+                <div class = "text">
+                    <p class="name">{{i.VenueName}}</p>
+                    <p class="location">{{i.VenueAddress}}</p>
+                </div>
+            </div>
+            </a>
+        {% endfor %}    
+    </div>
+</div>
+{% endblock %}
+
+
+

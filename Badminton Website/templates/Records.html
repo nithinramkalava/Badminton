@@ -1,0 +1,33 @@
+{% extends 'Base.html' %}
+
+{% block title %}Records{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/css/records.css">
+{%endblock%}
+
+{% block content %}
+    <p style="color: #ff7200;font-family: fantasy;font-size: 2.3em;margin-bottom: 10px;" >Booking Confirmation</p>
+    <ul  id = "UL">
+
+        {%if logs == [] %}
+            <p style="color:#fff;
+            font-size: 2em;">No Recent Bookings :(</p>
+        {%endif%}
+        {% for log in logs %}
+            <li id = "time">Booked on: {{ BookingTimes[loop.index0] }}</li>
+            <div class = "box">
+                    <h3 id = "yhs">You have successfully booked the following:</h3>
+              <div id = "data">    
+                <li>VENUE: {{ venues[loop.index0].VenueName }}</li>
+                <li>SPORT: {{ sports[loop.index0].SportName }}</li>
+                <li>DATE: {{ dates[loop.index0] }}</li>
+                <li>START TIME: {{ starts[loop.index0] }}</li>
+                <li>DURATION: {{ durations[loop.index0] }}</li>
+              </div> 
+            </div>
+            
+            <br>
+        {% endfor %}
+    </ul>
+{%endblock%}
